@@ -40,9 +40,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="Bdp-4l-0iI" kind="show" id="0ke-2W-i3r"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -52,6 +49,9 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Item" image="person.circle.fill" catalog="system" landscapeImage="person.circle.fill" selectedImage="person.circle.fill" id="tV9-Ok-RXs"/>
                     <navigationItem key="navigationItem" title="Root View Controller" id="ho2-ps-nPZ"/>
+                    <connections>
+                        <segue destination="Bdp-4l-0iI" kind="show" identifier="contact" id="xca-sh-Blm"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QPq-cY-EzS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -76,11 +76,11 @@
         <!--Contact List-->
         <scene sceneID="zDT-UC-knu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Sd5-qA-vaU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="cxE-6L-TbP" customClass="TabBarViewController" customModule="ContactList" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Contact List" id="Rmm-Fu-gYn"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GTa-xN-SiN">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -89,6 +89,7 @@
                         <segue destination="DeJ-f9-dzm" kind="relationship" relationship="viewControllers" id="hrq-VR-d2C"/>
                     </connections>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sd5-qA-vaU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="185.625" y="9.5070422535211261"/>
         </scene>
@@ -130,7 +131,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="lZt-EE-kkz">
-                                <rect key="frame" x="16" y="111" width="288" height="79"/>
+                                <rect key="frame" x="16" y="111" width="288" height="377"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NxF-6b-1Rj">
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="26.5"/>
@@ -144,6 +145,9 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6ep-ov-kHZ">
+                                        <rect key="frame" x="0.0" y="105" width="288" height="272"/>
+                                    </imageView>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -151,12 +155,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="lZt-EE-kkz" firstAttribute="leading" secondItem="0b1-Vm-kYn" secondAttribute="leading" constant="16" id="5wS-Ao-4Dc"/>
-                            <constraint firstItem="lZt-EE-kkz" firstAttribute="top" secondItem="0b1-Vm-kYn" secondAttribute="top" constant="20" id="QrP-3G-EFQ"/>
+                            <constraint firstItem="lZt-EE-kkz" firstAttribute="top" secondItem="0b1-Vm-kYn" secondAttribute="top" constant="20" id="CYg-i2-gJX"/>
+                            <constraint firstItem="0b1-Vm-kYn" firstAttribute="bottom" secondItem="lZt-EE-kkz" secondAttribute="bottom" constant="80" id="RJH-LF-FEd"/>
                             <constraint firstItem="0b1-Vm-kYn" firstAttribute="trailing" secondItem="lZt-EE-kkz" secondAttribute="trailing" constant="16" id="yD7-wZ-iXC"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="M75-sU-t9q"/>
                     <connections>
+                        <outlet property="coverImageView" destination="6ep-ov-kHZ" id="sIc-ok-Upq"/>
                         <outlet property="emailLabel" destination="I9y-HI-6jz" id="NUd-Gr-wO6"/>
                         <outlet property="phoneLabel" destination="NxF-6b-1Rj" id="x54-i6-fmc"/>
                     </connections>
