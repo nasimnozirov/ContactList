@@ -19,6 +19,7 @@ struct Person {
     }
     
     static func getPerson() -> [Person] {
+        
         var infoPerson:[Person] = []
 
         let names = DataService.shared.names.shuffled()
@@ -43,6 +44,7 @@ struct Person {
                 email: emails[index],
                 image: images[index]
             )
+            
             infoPerson.append(person)
         }
         return infoPerson
