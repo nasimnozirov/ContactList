@@ -19,7 +19,7 @@ class TabBarViewController: UITabBarController {
         guard let sectionVC = viewControllers?.first as? SectionTableViewController else { return }
         
         let persons = Person.getPerson()
-        contactListVC.contact = persons
+        contactListVC.persons = persons
         sectionVC.persons = persons
     }
 }

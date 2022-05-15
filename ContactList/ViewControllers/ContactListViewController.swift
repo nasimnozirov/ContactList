@@ -9,7 +9,7 @@ import UIKit
 
 class ContactListViewController: UITableViewController {
     
-    var contact: [Person] = []
+    var persons: [Person] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,13 +19,14 @@ class ContactListViewController: UITableViewController {
     
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        contact.count
+        persons.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "contact", for: indexPath)
-        let person = contact[indexPath.row]
         var content = cell.defaultContentConfiguration()
+        let person = persons[indexPath.row]
+        
         content.text = person.fullName
         content.image = UIImage(named: person.image)
         content.imageProperties.cornerRadius = tableView.rowHeight / 2
@@ -45,7 +46,7 @@ class ContactListViewController: UITableViewController {
 // MARK: - UITableViewDelegate
 extension ContactListViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let person = contact[indexPath.row]
+        let person = persons[indexPath.row]
         performSegue(withIdentifier: "contact", sender: person)
     }
     override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
